@@ -1,6 +1,8 @@
 <?php 
 require 'includes\connect.inc.php'; 
 require '..\layouts\navbar.php'; 
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en-US">

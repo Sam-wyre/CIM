@@ -1,5 +1,3 @@
-<?php require 'app/includes/connect.inc.php'; ?>
-<?php require 'app\layouts\navbar.php';?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -79,7 +77,7 @@
                             </ul>
                     </div>
                 </div>
-            </nav>-->
+            </nav>
             <div class="body-area">
                 <div class="body-area-title">
                     <div>
@@ -154,4 +152,4 @@
         </div>
     </div>
 </body>
-</html>
+</html>-->
