@@ -1,0 +1,397 @@
+.Container{
+    display: flex;
+    font-size: 12px;
+    line-height: 1.33333em;
+    font: inherit;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+}
+html #app {
+    transition: opacity .2s linear;
+    width: 100%;
+}
+html body, html div, html h1, html h2, html h3, html h4, html h5, html h6, html li, html nav, html ol, html p, html section, html ul {
+    line-height: 1.33333em;
+    margin: 0;
+    padding: 0;
+}
+.navigate{
+    background: #1995AD;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    top: 0;
+    transform: translateX(0);
+    transition: transform .2s ease-in-out,-webkit-transform .2s ease-in-out;
+    z-index: 10;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.side-nav {
+    flex-basis: auto;
+    width: auto;
+    display: flex;
+    height: 700PX;
+}
+.nav-container{
+    display: flex;
+    flex-direction: column;
+    font-size: 2.0125rem;
+    justify-content: space-between;
+    margin: 0;
+    min-height: 57px;
+    width: 16.275rem;
+    height: 700PX;
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+.nav-header{
+    background: transparent url(letterc.png) no-repeat 2.875rem;
+    height: 170px;
+    margin-left: 1px;
+    min-height: 170px;
+    position: relative;
+    text-indent: -999em;
+    overflow: hidden;
+}
+html h1 {
+    font-size: 18px;
+    color: #2e3d49;
+}
+
+html h1, html h2 {
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-container .nav-header span{
+    bottom: 0;
+    display: block;
+    left: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    top: 0;
+}
+
+.nav-container .nav-header span span{
+    display: none;
+}
+
+.u-react-glyph i{
+    display: inline-block;
+    height: 0;
+    left: -999em;
+    overflow: hidden;
+    position: absolute;
+    text-indent: -999em;
+    width: 0;
+}
+
+html em {
+    font-style: normal;
+}
+.nav-mid-container{
+    flex: 1 0 0;
+    flex-grow: 1;
+}
+
+.nav-bottom-container{
+    position: relative;
+    top: -4px;
+}
+
+.nav-mid-container,.nav-bottom-container{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+.nav-bottom-container li a, .nav-mid-container li a {
+    color: #f1f1f2;
+    
+    position: relative;
+    transition: color .2s ease-in-out;
+}
+.nav-bottom-container li a, .nav-mid-container li a:hover {
+    color: #f1f1f2;
+    background-color:#a1d6e2;
+    position: relative;
+    transition: color .2s ease-in-out;
+}
+.nav-container a{
+    color: #a1d6e2;
+    padding: 6px 15px 6px 16px;
+}
+html a {
+    color: #a1d6e2;
+    text-decoration: none;
+}
+a {
+    color: #a1d6e2;
+    text-decoration: none;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.nav-mid-container-list-1{
+    display: block;
+    padding: 15px;
+}
+.nav-mid-container-list-1-span1{
+    position: relative;
+}
+.nav-mid-container li span{
+    font-size: 1.36875rem;
+}
+.nav-mid-container-list-1 span {
+    color: black;
+}
+
+.nav-mid-container-list-1 span a:hover{
+    background-color: #b7e5f0;
+}
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+}
+
+.nav-mid-container-list-1-span2{
+    font-size: .875rem;
+    line-height: 3.0625rem;
+    vertical-align: middle;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+img{
+    height: 30px;
+    margin-left: 5px;
+    min-height: 30px;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.body-area {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.18125rem;
+    height: 100%;
+    line-height: 1.5em;
+    min-height: 100vh;
+    min-width: 300px;
+    position: relative;
+    transition: padding-top .2s ease-in-out;
+    width: 100%;
+}
+
+.body-area-title{
+    background: #fff;
+    box-shadow: 0 0 40px rgba(0,0,0,.2);
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: margin-left .2s ease-in-out,margin-right .2s ease-in-out;
+    z-index: 9;
+    margin-left: 261px;
+    width: 100%;
+}
+
+.title-container{
+    margin-left: 0px;
+    transition: margin-left .2s ease-in-out,margin-right .2s ease-in-out;
+    margin-right: 0%;
+}
+div {
+    display: block;
+}
+.title-value{
+    color: #2e3d49;
+    font-size: 1.12875rem;
+    font-weight: 400;
+    padding: .875rem;
+}
+h2 {
+    display: block;
+    font-size: 1.5em;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+.body-area-hidden-header{
+    visibility: hidden;
+}
+.main-body{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+    transition: height .3s ease-in-out;
+    transition: margin-left .2s ease-in-out,margin-right .2s ease-in-out;
+}
+
+.inner-body-layer{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.main-main-body{
+    margin-left: 261px;
+    max-width: 960px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.first-section{
+    margin-left: 261px;
+    margin-bottom: 50px;
+}
+.form-style-7{
+    
+    /*max-width:100%;*/
+    margin:5px auto;
+    margin-left: 5px;
+    background:#fff;
+    border-radius:2px;
+    padding:20px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+.form-style-7 h1{
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0px 0px 20px 0px;
+    color: #5C5C5C;
+    font-size:x-large;
+}
+.form-style-7 ul{
+    list-style:none;
+    padding:0;
+    margin:0;   
+}
+.form-style-7 li{
+    display: block;
+    padding: 9px;
+    border:1px solid #DDDDDD;
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+.form-style-7 li:last-child{
+    border:none;
+    margin-bottom: 0px;
+    text-align: center;
+}
+.form-style-7 li > label{
+    display: block;
+    float: left;
+    margin-top: -19px;
+    background: #FFFFFF;
+    height: 30px;
+    padding: 4px 7px 4px 7px;
+    color: #B9B9B9;
+    font-size: 14px;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.form-style-7 input[type="text"],
+.form-style-7 input[type="date"],
+.form-style-7 input[type="datetime"],
+.form-style-7 input[type="email"],
+.form-style-7 input[type="number"],
+.form-style-7 input[type="search"],
+.form-style-7 input[type="time"],
+.form-style-7 input[type="url"],
+.form-style-7 input[type="password"],
+.form-style-7 textarea,
+.form-style-7 select 
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    display: block;
+    outline: none;
+    border: 1px;
+    height: 30px;
+    line-height: 25px;
+    font-size: 16px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+/*.form-style-7 input[type="text"]:focus,
+.form-style-7 input[type="date"]:focus,
+.form-style-7 input[type="datetime"]:focus,
+.form-style-7 input[type="email"]:focus,
+.form-style-7 input[type="number"]:focus,
+.form-style-7 input[type="search"]:focus,
+.form-style-7 input[type="time"]:focus,
+.form-style-7 input[type="url"]:focus,
+.form-style-7 input[type="password"]:focus,
+.form-style-7 textarea:focus,
+.form-style-7 select:focus 
+{
+}*/
+.form-style-7 li > span{
+    background: #F3F3F3;
+    display: block;
+    padding: 3px;
+    margin: 0 -9px -9px -9px;
+    text-align: center;
+    color: #C0C0C0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+.form-style-7 textarea{
+    resize:none;
+}
+.form-style-7 input[type="submit"],
+.form-style-7 input[type="button"],
+.form-style-7 input[type="reset"]{
+    background: #2471FF;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    border-bottom: 3px solid #5994FF;
+    border-radius: 3px;
+    color: #D2E2FF;
+}
+.form-style-7 input[type="submit"]:hover,
+.form-style-7 input[type="button"]:hover,
+.form-style-7 input[type="reset"]:hover{
+    background: #6B9FFF;
+    color:#fff;
+}
+.contact{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    display: inline;
+}
