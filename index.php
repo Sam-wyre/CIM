@@ -1,155 +1,118 @@
+<?php
+	require 'app\includes\connect.inc.php';
+	require 'app\includes\funcs.inc.php';
+
+	if (isset($_POST['submit'])){
+	if(table_exist($table ='admin')){
+		create_admin_table();}
+	if(isset($_POST['email']) && isset($_POST['pass'])){
+		if (!empty($_POST['email']) && !empty($_POST['pass'])){
+			$user = $_POST['email'];
+			$pass = $_POST['pass'];
+			validate_admin($user,$pass);
+		}
+	}else{
+		echo "Please provide the details";
+	}
+}
+?>
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CIM</title>
-    <link href="css\style.css" rel="stylesheet">
-    <script src="js\script.js" defer></script>
+	<title>CIM Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="img/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/login_style.css">
+<!--===============================================================================================-->
 </head>
 <body>
-    
-    <!--<div id="app">
-        <div class= "Container">
-            <nav class="navigate">
-                <div class="side-nav">
-                    <div class="nav-container">
-                        
-                            <h1 class="nav-header">
-                                <span>
-                                    <span class="nav-title u-react-glyph" title="CIM">
-                                        <i>CIM</i>
-                                    </span> 
-                                    <em>CIM</em>
-                                </span>
-                            </h1>
-                            <ul class="nav-mid-container">
-                                <li>
-                                    <a target title="New-Customer" class="nav-mid-container-list-1 marg_low" href="">
-                                        <span class="nav-mid-container-list-1-span1">
-                                            <span class="nav-mid-container-list-1-span1-span" title="New-Customer">
-                                                <img src="img\reminder-paper-with-a-pin.png">
-                                            </span>
-                                        </span>
-                                        <span class="nav-mid-container-list-1-span2">New Customer</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a id="infonav" target title="Information" class="nav-mid-container-list-1 marg_low" href="" onclick="return infoclick();">
-                                        <span class="nav-mid-container-list-1-span1">
-                                            <span class="nav-mid-container-list-1-span1-span" title="information">
-                                                <img src="img\help.png">
-                                            </span>
-                                        </span>
-                                        <span class="nav-mid-container-list-1-span2">Information</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a target title="Appointments" class="nav-mid-container-list-1 marg_low" href="" onclick="return birthclick();">
-                                        <span class="nav-mid-container-list-1-span1">
-                                            <span class="nav-mid-container-list-1-span1-span" title="Appointments">
-                                                <img src="img\birth.png">
-                                            </span>
-                                        </span>
-                                        <span class="nav-mid-container-list-1-span2">Appointments</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a target title="Involve" class="nav-mid-container-list-1 marg_low" href="" onclick="return involveclick();">
-                                        <span class="nav-mid-container-list-1-span1">
-                                            <span class="nav-mid-container-list-1-span1-span" title="Involve">
-                                                <img src="img\involve.png">
-                                            </span>
-                                        </span>
-                                        <span class="nav-mid-container-list-1-span2">Involvement</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a target title="Contacts" class="nav-mid-container-list-1 marg_low" href="" onclick="return contactsclick();">
-                                        <span class="nav-mid-container-list-1-span1">
-                                            <span class="nav-mid-container-list-1-span1-span" title="Contacts">
-                                                <img src="img\telephone.png">
-                                            </span>
-                                        </span>
-                                        <span class="nav-mid-container-list-1-span2">Contacts</span>
-                                    </a>
-                                </li>
-                            </ul>
-                    </div>
-                </div>
-            </nav>
-            <div class="body-area">
-                <div class="body-area-title">
-                    <div>
-                        <div class="title-container">
-                          <div class="title-container-wrapper">
-                              <h2 id="header" class="title-value">New Customer</h2>
-                          </div>  
-                        </div>
-                    </div>
-                </div>
-                <div class="body-area-content">
-                    <div class="body-area-hidden-header" aria-hidden="true">
-                        <div class="hidden-header">
-                            <h2 class="title-value">New Customer</h2>
-                        </div>
-                    </div>
-                    <div id="main-layout-content" class="main-body" aria-labelledby="header-title">
-                        <div class="inner-body-layer">
-                            <div class="main-main-body">
-                                <div>
-                                    <div class="first-section">
-                                            <form class="form-style-7">
-                                                    <ul>
-                                                    <li>
-                                                        <label for="Customers">Customer</label>
-                                                        <input style="background-color: #f1f1f2" type="text" name="name" maxlength="70" placeholder="Full Name">                        
-                                                        <input style="background-color: #f1f1f2" type="text" name="company" maxlength="70" placeholder="Company">               
-                                                        <input style="background-color: #f1f1f2" type="text" name="work_function" maxlength="70" placeholder="Work Function">                        
-                                                        <input style="background-color: #f1f1f2" type="text" name="phone" maxlength="70" placeholder="Phone">
-                                                        <input style="background-color: #f1f1f2" type="text" name="email" maxlength="70" placeholder="Email">
-                                                        <span>Enter customers details here</span>
-                                                    </li>
-                                                    <li>
-                                                        <label for="sales_informations">Sales Information</label>
-                                                        <input style="background-color: #f1f1f2" type="text" name="estimated_sale" maxlength="70" placeholder="Estimated Sale">    
-                                                        <p class="contact">Last Contact: </p>
-                                                        <input style="background-color: #f1f1f2" type="date" name="lastcontact" maxlength="70" placeholder="Last Contact">                        
-                                                        <input style="background-color: #f1f1f2" type="text" name="nxt_action" maxlength="70" placeholder="Next Action">
-                                                        <p class="contact">Next Contact: </p>
-                                                        <input style="background-color: #f1f1f2" type="date" name="nextcontact" maxlength="70" placeholder="Next Contact">                                               
-                                                        <span>Enter sales information here</span>
-                                                    </li>
-                                                    <li>
-                                                        <label for="name">Lead Information</label><br/>
-                                                        <p class="contact">Lead Status: </p>
-                                                        <select style="background-color: #f1f1f2" name="leadstatus" maxlength="70" aria-placeholder="Lead Status">
-                                                            <option></option>
-                                                        </select>  
-                                                        <p class="contact">Lead Source: </p>                     
-                                                        <select style="background-color: #f1f1f2" name="leadsource" maxlength="70" aria-placeholder="Lead Source">
-                                                            <option></option>
-                                                        </select>
-                                                        <span>Enter lead information here</span>
-                                                    </li>
-                                                    <li>                    
-                                                        <input type="submit" value="Add" >
-                                                        <input type="reset" value="Cancel">
-                                                    </li>
-                                                    </ul>
-                                                </form>
-                                    </div>
-                                    <div class="second-section">
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>" method="POST">
+					<span class="login100-form-title p-b-26">
+						Welcome
+					</span>
+					<span class="login100-form-title p-b-48">
+						<i class=""><img src="css/letterc.png"></i>
+					</span>
 
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="footer" class="footer-footer"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+						<input class="input100" type="text" name="email">
+						<span class="focus-input100" data-placeholder="Email"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password" name="pass">
+						<span class="focus-input100" data-placeholder="Password"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button type="submit" name="submit" value="submit" class="login100-form-btn">
+								Login
+							</button>
+						</div>
+					</div>
+
+					<div class="text-center p-t-115">
+						<span class="txt1">
+							Don’t have an account?
+						</span>
+
+						<a class="txt2" href="#">
+							Sign Up
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/script.js"></script>
+
 </body>
-</html>-->
+</html>
