@@ -1,8 +1,33 @@
 <?php 
 require 'includes\connect.inc.php'; 
-require '..\layouts\navbar.php'; 
+require '..\layouts\navbar.php';
+require 'includes\funcs.inc.php';
 
-
+if (isset($_POST['submit'])){
+	if(!table_exist($table ='customers')){
+		create_customers_table();
+	}
+	if(isset($_POST['name']) && isset($_POST['company']) && isset($_POST['work_function']) && isset($_POST['phone']) && isset($_POST['email']) && isset($_POST['estimated_sale'])){
+		if (!empty($_POST['name']) && !empty($_POST['company']) && !empty($_POST['work_function']) && !empty($_POST['phone']) && !empty($_POST['email']) && !empty($_POST['estimated_sale'])){
+			$name = $_POST['name'];
+            $company = $_POST['company'];
+            $work_function = $_POST['work_function'];
+            $phone = $_POST['phone'];
+            $email =  $_POST['email'];
+            $est_sale = $_POST['estimated_sale'];
+            $lst_cnt =  $_POST['lastcontact'];
+            $nxt_act = $_POST['nxt_action'];
+            $nxt_cnt = $_POST['nextcontact'];
+            $lead_stat = $_POST['leadstatus'];
+            $lead_src = $_POST['leadsource'];
+            echo "  Sign In as a User";
+            //redirect_to('app/index.php');
+            redirect_to('app/index.php');
+		}
+	}else{
+		echo "No Data was Inputed";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -105,7 +130,7 @@ require '..\layouts\navbar.php';
                             <div class="main-main-body">
                                 <div>
                                     <div class="first-section">
-                                            <form class="form-style-7">
+                                            <form class="form-style-7" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>" method="POST">
                                                     <ul>
                                                     <li>
                                                         <label for="Customers">Customer</label>
@@ -139,7 +164,7 @@ require '..\layouts\navbar.php';
                                                         <span>Enter lead information here</span>
                                                     </li>
                                                     <li>                    
-                                                        <input type="submit" value="Add" >
+                                                        <input type="submit" name="submit" value="Add" >
                                                         <input type="reset" value="Cancel">
                                                     </li>
                                                     </ul>

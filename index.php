@@ -3,13 +3,20 @@
 	require 'app\includes\funcs.inc.php';
 
 	if (isset($_POST['submit'])){
-	if(table_exist($table ='admin')){
-		create_admin_table();}
+	if(!table_exist($table ='admins')){
+		create_admin_table();
+	}
 	if(isset($_POST['email']) && isset($_POST['pass'])){
 		if (!empty($_POST['email']) && !empty($_POST['pass'])){
 			$user = $_POST['email'];
 			$pass = $_POST['pass'];
-			validate_admin($user,$pass);
+			if(!validate_admin($user,$pass)){
+				//add_admin($user, $pass);
+				echo "  Sign In as a User";
+				//redirect_to('app/index.php');
+			}else{
+				redirect_to('app/index.php');
+			}
 		}
 	}else{
 		echo "Please provide the details";
@@ -116,3 +123,4 @@
 
 </body>
 </html>
+<?php mysqli_close($connection); ?>
