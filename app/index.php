@@ -3,12 +3,14 @@ require 'includes\connect.inc.php';
 require '..\layouts\navbar.php';
 require 'includes\funcs.inc.php';
 
-if (isset($_POST['submit'])){
+if (isset($_POST['add'])){
 	if(!table_exist($table ='customers')){
 		create_customers_table();
 	}
-	if(isset($_POST['name']) && isset($_POST['company']) && isset($_POST['work_function']) && isset($_POST['phone']) && isset($_POST['email']) && isset($_POST['estimated_sale'])){
-		if (!empty($_POST['name']) && !empty($_POST['company']) && !empty($_POST['work_function']) && !empty($_POST['phone']) && !empty($_POST['email']) && !empty($_POST['estimated_sale'])){
+    if(isset($_POST['name']) && isset($_POST['company']) && isset($_POST['work_function']) &&
+       isset($_POST['phone']) && isset($_POST['email']) && isset($_POST['estimated_sale'])){
+        if (!empty($_POST['name']) && !empty($_POST['company']) && !empty($_POST['work_function']) &&
+            !empty($_POST['phone']) && !empty($_POST['email']) && !empty($_POST['estimated_sale'])){
 			$name = $_POST['name'];
             $company = $_POST['company'];
             $work_function = $_POST['work_function'];
@@ -20,10 +22,10 @@ if (isset($_POST['submit'])){
             $nxt_cnt = $_POST['nextcontact'];
             $lead_stat = $_POST['leadstatus'];
             $lead_src = $_POST['leadsource'];
-            echo "  Sign In as a User";
-            //redirect_to('app/index.php');
-            redirect_to('app/index.php');
-		}
+            add_customer($name, $company, $work_function, $phone, $email, $est_sale,$lst_cnt, $nxt_act, $nxt_cnt, $lead_stat, $lead_src);
+		}else{
+            echo "Input Fields are Empty";
+        }
 	}else{
 		echo "No Data was Inputed";
     }
@@ -138,12 +140,12 @@ if (isset($_POST['submit'])){
                                                         <input style="background-color: #f1f1f2" type="text" name="company" maxlength="70" placeholder="Company">               
                                                         <input style="background-color: #f1f1f2" type="text" name="work_function" maxlength="70" placeholder="Work Function">                        
                                                         <input style="background-color: #f1f1f2" type="text" name="phone" maxlength="70" placeholder="Phone">
-                                                        <input style="background-color: #f1f1f2" type="text" name="email" maxlength="70" placeholder="Email">
+                                                        <input style="background-color: #f1f1f2" type="email" name="email" maxlength="70" placeholder="Email">
                                                         <span>Enter customers details here</span>
                                                     </li>
                                                     <li>
                                                         <label for="sales_informations">Sales Information</label>
-                                                        <input style="background-color: #f1f1f2" type="text" name="estimated_sale" maxlength="70" placeholder="Estimated Sale">    
+                                                        <input style="background-color: #f1f1f2" type="decimal" name="estimated_sale" maxlength="70" placeholder="Estimated Sale"> <br> 
                                                         <p class="contact">Last Contact: </p>
                                                         <input style="background-color: #f1f1f2" type="date" name="lastcontact" maxlength="70" placeholder="Last Contact">                        
                                                         <input style="background-color: #f1f1f2" type="text" name="nxt_action" maxlength="70" placeholder="Next Action">
@@ -155,16 +157,23 @@ if (isset($_POST['submit'])){
                                                         <label for="name">Lead Information</label><br/>
                                                         <p class="contact">Lead Status: </p>
                                                         <select style="background-color: #f1f1f2" name="leadstatus" maxlength="70" aria-placeholder="Lead Status">
-                                                            <option></option>
+                                                            <option>SELECT</option>
+                                                            <option value="on">ON</option>
+                                                            <option value="off">OFF</option>
                                                         </select>  
                                                         <p class="contact">Lead Source: </p>                     
                                                         <select style="background-color: #f1f1f2" name="leadsource" maxlength="70" aria-placeholder="Lead Source">
-                                                            <option></option>
+                                                            <option>SELECT</option>
+                                                            <option value="friend">A friend</option>
+                                                            <option value="radio">Radio</option>
+                                                            <option value="newspaper">Newspaper</option>
+                                                            <option value="blog">Blog</option>
+                                                            <option value="other">Other</option>
                                                         </select>
                                                         <span>Enter lead information here</span>
                                                     </li>
                                                     <li>                    
-                                                        <input type="submit" name="submit" value="Add" >
+                                                        <input type="submit" name="add" value="Add" >
                                                         <input type="reset" value="Cancel">
                                                     </li>
                                                     </ul>

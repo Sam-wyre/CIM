@@ -77,14 +77,14 @@
       CustomerName VARCHAR(30) NOT NULL,
       Customer_company VARCHAR(30) NOT NULL,
       Customer_WorkFunction VARCHAR(50) NOT NULL,
-      CustomerPhone VARCHAR(50) NOT NULL,
-      CustomerEmail VARCHAR(50) NOT NULL,
-      EstimatedSale (DECIMAL(15,2)) NOT NULL,
+      CustomerPhone VARCHAR(30) NOT NULL,
+      CustomerEmail VARCHAR(30) NOT NULL,
+      EstimatedSale (DECIMAL(9,2)) NOT NULL,
       LastContact DATETIME NOT NULL,
-      NextAction VARCHAR(50) NULL,
+      NextAction VARCHAR(30) NULL,
       NextContact DATETIME NULL,
-      LeadStatus VARCHAR(50) NULL,
-      LeadSource VARCHAR(50) NULL,
+      LeadStatus VARCHAR(30) NULL,
+      LeadSource VARCHAR(30) NULL,
       )";
 
     // if (mysqli_query($connection, $sql)) {
@@ -94,14 +94,15 @@
     // }
 
     try{
-      mysqli_query($connection, $sql);
-
+      $query = mysqli_query($connection, $sql);
+      //confirm_query($query);
       //TODO
       //confirm_query here
 
-      echo "Table Created Successfully";
+      //echo "Table Created Successfully";
     }catch(Exception $e){
       mysqli_error($e);
+      echo "Table not Created";
     }
   }
   
@@ -212,9 +213,27 @@
 
 
 
-  function add_customer(){
-
+  function add_customer($name, $company, $work_function, $phone, $email, $est_sale, 
+  $lst_cnt, $nxt_act, $nxt_cnt, $lead_stat, $lead_src){
+    global $connection;
     // add customers to the customer table
+
+    //TODO
+    //Find to way to pass the values into a key value data type
+
+    $sql = "INSERT INTO `cim`.`customers`(`CustomerName`, `Customer_company`, `Customer_WorkFunction`, `CustomerPhone`,
+                         `CustomerEmail`, `EstimatedSale`, `LastContact`, `NextAction`, `NextContact`, `LeadStatus`, `LeadSource`)
+             VALUES('$name', '$company', '$work_function', '$phone', 
+            '$email', '$est_sale', '$lst_cnt', '$nxt_act', '$nxt_cnt', '$lead_stat', '$lead_src')";
+    try{
+      $query_run = mysqli_query($connection, $sql);
+
+       //TODO
+       //confirm_query here
+
+    }catch (Exception $e){
+      mysqli_error($e);
+    }
 
   }
 
