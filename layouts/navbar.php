@@ -24,7 +24,7 @@
                             </h1>
                             <ul class="nav-mid-container">
                                 <li>
-                                    <a target title="New-Customer" class="nav-mid-container-list-1 marg_low" href="">
+                                    <a target title="New-Customer" class="nav-mid-container-list-1 marg_low" href="..\app\index.php">
                                         <span class="nav-mid-container-list-1-span1">
                                             <span class="nav-mid-container-list-1-span1-span" title="New-Customer">
                                                 <img src="..\img\reminder-paper-with-a-pin.png">
@@ -34,7 +34,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a id="infonav" target title="Information" class="nav-mid-container-list-1 marg_low" href="" onclick="return infoclick();">
+                                    <a id="infonav" target title="Information" class="nav-mid-container-list-1 marg_low" href="..\app\info.php">
                                         <span class="nav-mid-container-list-1-span1">
                                             <span class="nav-mid-container-list-1-span1-span" title="information">
                                                 <img src="..\img\help.png">
@@ -44,7 +44,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a target title="Appointments" class="nav-mid-container-list-1 marg_low" href="" onclick="return birthclick();">
+                                    <a target title="Appointments" class="nav-mid-container-list-1 marg_low" href="..\app\appoint.php">
                                         <span class="nav-mid-container-list-1-span1">
                                             <span class="nav-mid-container-list-1-span1-span" title="Appointments">
                                                 <img src="..\img\birth.png">
@@ -54,7 +54,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a target title="Involve" class="nav-mid-container-list-1 marg_low" href="" onclick="return involveclick();">
+                                    <a target title="Involve" class="nav-mid-container-list-1 marg_low" href="involve.php" >
                                         <span class="nav-mid-container-list-1-span1">
                                             <span class="nav-mid-container-list-1-span1-span" title="Involve">
                                                 <img src="..\img\involve.png">
@@ -64,7 +64,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a target title="Contacts" class="nav-mid-container-list-1 marg_low" href="" onclick="return contactsclick();">
+                                    <a target title="Contacts" class="nav-mid-container-list-1 marg_low" href="contact.php">
                                         <span class="nav-mid-container-list-1-span1">
                                             <span class="nav-mid-container-list-1-span1-span" title="Contacts">
                                                 <img src="..\img\telephone.png">
